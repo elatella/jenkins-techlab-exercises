@@ -9,7 +9,7 @@ timestamps() {
                 withEnv(['GREETINGS_TO=Jenkins Techlab']) {
                     echo "Hello, ${env.BUILD_ID} !"
                     // also available as env variable to a process:
-                    sh 'echo "Hello, $env.BUILD_ID !"'
+                    sh 'echo "Hello, $BUILD_ID !"'
                 }
             }
         }
