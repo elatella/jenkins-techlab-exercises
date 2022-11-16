@@ -6,9 +6,6 @@ pipeline {
         timestamps()  // Timestamper Plugin
         disableConcurrentBuilds()
     }
-    environment {
-        GREETINGS_TO = 'Jenkins Techlab'
-    }
     stages {
         stage('Greeting') {
             steps {
