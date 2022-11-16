@@ -7,7 +7,7 @@ timestamps() {
         node {
             stage('Greeting') {
                 withEnv(['GREETINGS_TO=Jenkins Techlab']) {
-                    echo "Hello, ${env.GREETINGS_TO} !"
+                    echo "Hello, ${env.BUILD_ID} !"
                     // also available as env variable to a process:
                     sh 'echo "Hello, $GREETINGS_TO !"'
                 }
