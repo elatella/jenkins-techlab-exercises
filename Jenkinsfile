@@ -1,3 +1,5 @@
+@Library('jenkins-techlab-exercise-library') _
+
 pipeline {
     agent any
     options {
@@ -13,11 +15,20 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-
                 sh 'mvn -B -V -U -e clean verify -Dsurefire.useFile=false -DargLine="-Djdk.net.URLClassPath.disableClassPathURLCheck=true"'
                 archiveArtifacts 'target/*.?ar'
-                junit 'target/**/*.xml'  // Requires JUnit plugin
+            }
+            post {
+                always {
+                    junit 'target/**/*.xml'  // Requires JUnit plugin
+                }
             }
         }
     }
+    post {
+        always {
+            notifyPuzzleChat('general')
+        }
+    }
 }
+
