@@ -11,7 +11,7 @@ pipeline {
         maven 'maven36'
     }
     stages {
-        stage('Build') {
+        stage('Build' {
             steps {
                 sh 'mvn -B -V -U -e clean verify -Dsurefire.useFile=false -DargLine="-Djdk.net.URLClassPath.disableClassPathURLCheck=true" -Dmaven.test.failure.ignore=true'
                 archiveArtifacts 'target/*.?ar'
