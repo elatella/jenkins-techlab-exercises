@@ -1,7 +1,7 @@
 pipeline {
     agent any
     options {
-        buildDiscarder(logRotator(numToKeepStr: '5'))
+        buildDiscarder(logRotator(numToKeepStr: 'M'))
         timeout(time: 10, unit: 'MINUTES')
         timestamps()  // Timestamper Plugin
         disableConcurrentBuilds()
